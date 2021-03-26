@@ -54,42 +54,44 @@ public class PersonCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
         switch (person.getModeOfContact().value) {
-            case "address":
-                id.setText(displayedIndex + ". ");
-                name.setText(person.getName().fullName);
-                phone.setText(person.getPhone().value);
-                address.setText("[Preferred] " + person.getAddress().value);
-                email.setText(person.getEmail().value);
-                remark.setText(person.getRemark().value);
-                blacklist.setText(person.getBlacklist().toString());
-                person.getTags().stream()
-                        .sorted(Comparator.comparing(tag -> tag.tagName))
-                        .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-                break;
-            case "email":
-                id.setText(displayedIndex + ". ");
-                name.setText(person.getName().fullName);
-                phone.setText(person.getPhone().value);
-                address.setText(person.getAddress().value);
-                email.setText("[Preferred] " + person.getEmail().value);
-                remark.setText(person.getRemark().value);
-                blacklist.setText(person.getBlacklist().toString());
-                person.getTags().stream()
-                        .sorted(Comparator.comparing(tag -> tag.tagName))
-                        .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-                break;
-            case "phone":
-                id.setText(displayedIndex + ". ");
-                name.setText(person.getName().fullName);
-                phone.setText("[Preferred] " + person.getPhone().value);
-                address.setText(person.getAddress().value);
-                email.setText(person.getEmail().value);
-                remark.setText(person.getRemark().value);
-                blacklist.setText(person.getBlacklist().toString());
-                person.getTags().stream()
-                        .sorted(Comparator.comparing(tag -> tag.tagName))
-                        .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-                break;
+        case "address":
+            id.setText(displayedIndex + ". ");
+            name.setText(person.getName().fullName);
+            phone.setText(person.getPhone().value);
+            address.setText("[Preferred] " + person.getAddress().value);
+            email.setText(person.getEmail().value);
+            remark.setText(person.getRemark().value);
+            blacklist.setText(person.getBlacklist().toString());
+            person.getTags().stream()
+                    .sorted(Comparator.comparing(tag -> tag.tagName))
+                    .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+            break;
+        case "email":
+            id.setText(displayedIndex + ". ");
+            name.setText(person.getName().fullName);
+            phone.setText(person.getPhone().value);
+            address.setText(person.getAddress().value);
+            email.setText("[Preferred] " + person.getEmail().value);
+            remark.setText(person.getRemark().value);
+            blacklist.setText(person.getBlacklist().toString());
+            person.getTags().stream()
+                    .sorted(Comparator.comparing(tag -> tag.tagName))
+                    .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+            break;
+        case "phone":
+            id.setText(displayedIndex + ". ");
+            name.setText(person.getName().fullName);
+            phone.setText("[Preferred] " + person.getPhone().value);
+            address.setText(person.getAddress().value);
+            email.setText(person.getEmail().value);
+            remark.setText(person.getRemark().value);
+            blacklist.setText(person.getBlacklist().toString());
+            person.getTags().stream()
+                    .sorted(Comparator.comparing(tag -> tag.tagName))
+                    .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+            break;
+        default:
+            break;
         }
     }
 
