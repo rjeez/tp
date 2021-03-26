@@ -53,17 +53,44 @@ public class PersonCard extends UiPart<Region> {
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
         this.person = person;
-        id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
-        remark.setText(person.getRemark().value);
-        modeOfContact.setText(person.getModeOfContact().value);
-        blacklist.setText(person.getBlacklist().toString());
-        person.getTags().stream()
-                .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        switch (person.getModeOfContact().value) {
+            case "address":
+                id.setText(displayedIndex + ". ");
+                name.setText(person.getName().fullName);
+                phone.setText(person.getPhone().value);
+                address.setText("[Preferred] " + person.getAddress().value);
+                email.setText(person.getEmail().value);
+                remark.setText(person.getRemark().value);
+                blacklist.setText(person.getBlacklist().toString());
+                person.getTags().stream()
+                        .sorted(Comparator.comparing(tag -> tag.tagName))
+                        .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                break;
+            case "email":
+                id.setText(displayedIndex + ". ");
+                name.setText(person.getName().fullName);
+                phone.setText(person.getPhone().value);
+                address.setText(person.getAddress().value);
+                email.setText("[Preferred] " + person.getEmail().value);
+                remark.setText(person.getRemark().value);
+                blacklist.setText(person.getBlacklist().toString());
+                person.getTags().stream()
+                        .sorted(Comparator.comparing(tag -> tag.tagName))
+                        .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                break;
+            case "phone":
+                id.setText(displayedIndex + ". ");
+                name.setText(person.getName().fullName);
+                phone.setText("[Preferred] " + person.getPhone().value);
+                address.setText(person.getAddress().value);
+                email.setText(person.getEmail().value);
+                remark.setText(person.getRemark().value);
+                blacklist.setText(person.getBlacklist().toString());
+                person.getTags().stream()
+                        .sorted(Comparator.comparing(tag -> tag.tagName))
+                        .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                break;
+        }
     }
 
     @Override
